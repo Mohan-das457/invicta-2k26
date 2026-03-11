@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
-import Image from "next/image";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -131,11 +130,10 @@ export default function EventsPage() {
                                     {/* Banner Image */}
                                     {event.banner && (
                                         <div className="relative w-full h-48 overflow-hidden">
-                                            <Image
+                                            <img
                                                 src={event.banner}
                                                 alt={event.title}
-                                                fill
-                                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                             />
                                             <div className="absolute inset-0 bg-gradient-to-t from-[#12121A] to-transparent" />
                                         </div>

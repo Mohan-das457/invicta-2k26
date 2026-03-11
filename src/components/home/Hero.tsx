@@ -189,7 +189,7 @@ export default function Hero() {
               Explore Events
             </motion.button>
           </Link>
-          <Link href="https://forms.gle/4N1n1bX4YcE4U8u9" target="_blank" rel="noopener noreferrer" className="hero-cta">
+          <Link href="/events" className="hero-cta">
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(6, 182, 212, 0.5)" }}
               whileTap={{ scale: 0.95 }}

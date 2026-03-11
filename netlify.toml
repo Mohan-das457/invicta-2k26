@@ -3,5 +3,6 @@
   publish = "out"
 
 [build.environment]
-  NODE_VERSION = "18"
+  # Next.js 16 requires Node >= 20.9.0 — use a 20.x runtime on Netlify
+  NODE_VERSION = "20.9.0"
 

@@ -84,7 +84,7 @@ export default function HeroSection() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col md:flex-row gap-6 mt-4 items-center">
-                    <Link href="https://forms.gle/4N1n1bX4YcE4U8u9" target="_blank" rel="noopener noreferrer">
+                    <Link href="/events">
                         <RippleButton
                             className="bg-white text-black font-black text-lg px-12 py-4 rounded-full min-w-[200px]"
                             rippleColor="rgba(0,0,0,0.1)"

@@ -2,8 +2,10 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  output: "export",
   images: {
     qualities: [100, 75],
+    unoptimized: true,
   },
   // Force Turbopack to use this project directory as the root.
   // This avoids Next.js inferring the wrong workspace root when

@@ -72,7 +72,7 @@ export default function Navbar() {
                 </nav>
 
                 {/* CTA */}
-                <Link href="/register" className="ml-2 pr-2">
+                <Link href="/events" className="ml-2 pr-2">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -151,7 +151,7 @@ export default function Navbar() {
                                     transition={{ delay: 0.3 }}
                                     className="pt-2 border-t border-white/5 mt-2"
                                 >
-                                    <Link href="/register" onClick={() => setIsOpen(false)}>
+                                    <Link href="/events" onClick={() => setIsOpen(false)}>
                                         <button className="w-full py-3 rounded-xl bg-gradient-to-r from-[#8B5CF6] to-[#EC4899] text-white font-bold">
                                             Register Now
                                         </button>

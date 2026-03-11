@@ -2,7 +2,7 @@
   # Run a production build then a static export so Netlify can publish `out/`.
   # If you prefer serverless Next builds, we can remove the export and use Netlify's
   # Next plugin instead — tell me and I'll switch it.
-  command = "npm install && npm run build && npm run export"
+  command = "npm install && npm run build"
   publish = "out"
 
 [build.environment]

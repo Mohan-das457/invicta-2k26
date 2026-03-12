@@ -67,9 +67,10 @@ export default function RacePath() {
         <div className="fixed inset-0 pointer-events-none z-40" id="race-path-container">
             {/* Desktop: SVG Race Path */}
             <svg
-                className="hidden lg:block w-full h-full opacity-[0.08]"
+                className="hidden lg:block w-full h-full opacity-[0.08] absolute inset-0"
                 viewBox="0 0 1920 4000"
-                preserveAspectRatio="none"
+                preserveAspectRatio="xMidYMid slice"
+                style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 40 }}
             >
                 <defs>
                     <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -80,25 +81,26 @@ export default function RacePath() {
                 </defs>
                 <path
                     ref={pathRef}
-                    d="M -100,100 
-             C 400,200 800,100 1000,400 
-             S 1400,800 1000,1200 
-             S 200,1600 800,2000 
-             S 1600,2400 1000,2800 
-             S 200,3200 1000,3600
-             S 1800,3800 2000,4000"
+                    d="M 960,100 
+             C 1360,200 1760,100 1960,400 
+             S 2360,800 1960,1200 
+             S 1160,1600 1760,2000 
+             S 2560,2400 1960,2800 
+             S 1160,3200 1960,3600
+             S 2760,3800 2960,4000"
                     fill="none"
                     stroke="url(#pathGradient)"
                     strokeWidth="3"
                     strokeDasharray="10 5"
+                    vectorEffect="non-scaling-stroke"
                 />
             </svg>
 
             {/* Desktop: The Streak/Horse that follows the path */}
             <div
                 ref={streakRef}
-                className="hidden lg:block absolute will-change-transform"
-                style={{ top: 0, left: 0 }}
+                className="hidden lg:block fixed will-change-transform"
+                style={{ top: 0, left: 0, zIndex: 41 }}
             >
                 <div className="relative">
                     {/* Glow effect */}
@@ -111,7 +113,7 @@ export default function RacePath() {
             </div>
 
             {/* Mobile: Top Progress Bar */}
-            <div className="mobile-progress-bar lg:hidden fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-[#8B5CF6] via-[#06B6D4] to-[#EC4899] origin-left scale-x-0 will-change-transform" />
+            <div className="mobile-progress-bar lg:hidden fixed top-0 left-0 w-full h-1 bg-gradient-to-r from-[#8B5CF6] via-[#06B6D4] to-[#EC4899] origin-left scale-x-0 will-change-transform z-50" />
         </div>
     );
 }

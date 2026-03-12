@@ -48,19 +48,28 @@
   --glow-pink: 0 0 30px rgba(236, 72, 153, 0.4);
 }
 
-@theme inline {
-  --color-background: var(--bg-primary);
-  --color-foreground: var(--text-primary);
-  --font-display: var(--font-orbitron);
-  --font-body: var(--font-inter);
-}
-
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply antialiased selection:bg-purple-500/30 selection:text-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    position: relative;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+  }
+
+  ::selection {
+    background-color: rgba(168, 85, 247, 0.3);
+    color: white;
   }
 
   /* Custom Scrollbar */
@@ -84,51 +93,122 @@
 }
 
 @layer components {
+  /* Section Base Styling */
+  section {
+    position: relative;
+    z-index: 1;
+  }
 
   /* Typography */
   .heading-hero {
-    @apply text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight leading-none;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 4rem;
+    }
   }
 
   .heading-section {
-    @apply text-3xl md:text-5xl font-bold uppercase tracking-wide;
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+    }
   }
 
   /* Buttons */
   .btn-primary {
-    @apply px-6 py-3 rounded-xl font-bold bg-white text-black hover:scale-105 active:scale-95 transition-all duration-300;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    background-color: white;
+    color: black;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.05);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.95);
   }
 
   .btn-outline {
-    @apply px-6 py-3 rounded-xl font-bold border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all duration-300;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
   }
 
   .btn-glass {
-    @apply px-6 py-3 rounded-xl font-bold bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 hover:border-white/30 transition-all duration-300;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1rem);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-glass:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 
   /* Cards & Surfaces */
   .glass-card {
-    @apply bg-[#12121A]/80 backdrop-blur-xl border border-white/5 rounded-2xl transition-all duration-300;
+    background-color: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(1.25rem);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
   }
 
   .glass-card:hover {
-    @apply border-white/10;
+    border-color: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 30px -5px rgba(139, 92, 246, 0.15);
   }
 
   /* Text Effects */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#06B6D4];
+    background: linear-gradient(to right, #8B5CF6, #EC4899, #06B6D4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .neon-text {
-    @apply text-white;
+    color: white;
     filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.5));
   }
 
   .neon-text-alt {
-    @apply text-white;
+    color: white;
     filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
   }
 }

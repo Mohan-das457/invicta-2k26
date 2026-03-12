@@ -24,21 +24,24 @@ export default function HeroSection() {
             {/* Parallax Background */}
             <motion.div
                 style={{ y: y1 }}
-                className="absolute inset-0 z-0"
+                className="absolute inset-0 z-0 w-full h-full"
             >
-                <Image
-                    src="/hero-bg.png"
-                    alt="INVICTA Concert Background"
-                    fill
-                    priority
-                    className="object-cover object-center opacity-60"
-                    quality={100}
-                />
+                <div className="relative w-full h-full">
+                    <Image
+                        src="/hero-bg.png"
+                        alt="INVICTA Concert Background"
+                        fill
+                        priority
+                        className="object-cover object-center opacity-60"
+                        quality={100}
+                        sizes="100vw"
+                    />
+                </div>
 
                 {/* Advanced Gradients for that "Cyberpunk Lux" depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/50 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0F] via-transparent to-transparent opacity-80" />
-                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 mix-blend-overlay" />
             </motion.div>
 
             {/* Floating Elements */}
